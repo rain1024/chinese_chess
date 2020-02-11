@@ -1,10 +1,10 @@
-var svg = d3.select("body").append("svg")
+var svg = d3.select(".board").append("svg")
     .attr("width", 1400)
-    .attr("height", 800)
+    .attr("height", 800);
 
 var image = {
     size: 40
-}
+};
 
 var defs = svg.append("defs");
 
@@ -47,40 +47,86 @@ var xe_den_png = "images/xe_den.png",
 
 drawTable();
 var base_X = 20;
-appendDraggableImage(xe_den_png, [20, base_X]);
-appendDraggableImage(xe_den_png, [20 * 33, base_X]);
-appendDraggableImage(ma_den_png, [20 * 5, base_X]);
-appendDraggableImage(ma_den_png, [20 * 29, base_X]);
-appendDraggableImage(tuong_2_den_png, [20 * 9, base_X]);
-appendDraggableImage(tuong_2_den_png, [20 * 25, base_X]);
-appendDraggableImage(si_den_png, [20 * 13, base_X]);
-appendDraggableImage(si_den_png, [20 * 21, base_X]);
-appendDraggableImage(tuong_den_png, [20 * 17, base_X]);
-appendDraggableImage(phao_den_png, [20 * 5, 20 * 9]);
-appendDraggableImage(phao_den_png, [20 * 29, 20 * 9]);
-appendDraggableImage(tot_den_png, [20, 20 * 13]);
-appendDraggableImage(tot_den_png, [20 * 9, 20 * 13]);
-appendDraggableImage(tot_den_png, [20 * 17, 20 * 13]);
-appendDraggableImage(tot_den_png, [20 * 25, 20 * 13]);
-appendDraggableImage(tot_den_png, [20 * 33, 20 * 13]);
+appendDraggableImage(xe_den_png, "BR1", [20, base_X]);
+appendDraggableImage(xe_den_png, "BR2", [20 * 33, base_X]);
+appendDraggableImage(ma_den_png, "BH1", [20 * 5, base_X]);
+appendDraggableImage(ma_den_png, "BH2", [20 * 29, base_X]);
+appendDraggableImage(tuong_2_den_png, "BE1", [20 * 9, base_X]);
+appendDraggableImage(tuong_2_den_png, "BE2", [20 * 25, base_X]);
+appendDraggableImage(si_den_png, "BA1", [20 * 13, base_X]);
+appendDraggableImage(si_den_png, "BA2", [20 * 21, base_X]);
+appendDraggableImage(tuong_den_png, "BK", [20 * 17, base_X]);
+appendDraggableImage(phao_den_png, "BC1", [20 * 5, 20 * 9]);
+appendDraggableImage(phao_den_png, "BC2", [20 * 29, 20 * 9]);
+appendDraggableImage(tot_den_png, "BP1", [20, 20 * 13]);
+appendDraggableImage(tot_den_png, "BP2", [20 * 9, 20 * 13]);
+appendDraggableImage(tot_den_png, "BP3", [20 * 17, 20 * 13]);
+appendDraggableImage(tot_den_png, "BP4", [20 * 25, 20 * 13]);
+appendDraggableImage(tot_den_png, "BP5", [20 * 33, 20 * 13]);
 
-appendDraggableImage(xe_do_png, [20, base_X * 37]);
-appendDraggableImage(xe_do_png, [20 * 33, base_X * 37]);
-appendDraggableImage(ma_do_png, [20 * 5, base_X * 37]);
-appendDraggableImage(ma_do_png, [20 * 29, base_X * 37]);
-appendDraggableImage(tuong_2_do_png, [20 * 9, base_X * 37]);
-appendDraggableImage(tuong_2_do_png, [20 * 25, base_X * 37]);
-appendDraggableImage(si_do_png, [20 * 13, base_X * 37]);
-appendDraggableImage(si_do_png, [20 * 21, base_X * 37]);
-appendDraggableImage(tuong_do_png, [20 * 17, base_X * 37]);
-appendDraggableImage(phao_do_png, [20 * 5, 20 * 29]);
-appendDraggableImage(phao_do_png, [20 * 29, 20 * 29]);
-appendDraggableImage(tot_do_png, [20, 20 * 25]);
-appendDraggableImage(tot_do_png, [20 * 9, 20 * 25]);
-appendDraggableImage(tot_do_png, [20 * 17, 20 * 25]);
-appendDraggableImage(tot_do_png, [20 * 25, 20 * 25]);
-appendDraggableImage(tot_do_png, [20 * 33, 20 * 25]);
-appendDraggableImage(tot_do_png, [20 * 33, 20 * 25]);
+appendDraggableImage(xe_do_png, "RR1", [20, base_X * 37]);
+appendDraggableImage(xe_do_png, "RR2", [20 * 33, base_X * 37]);
+appendDraggableImage(ma_do_png, "RH1", [20 * 5, base_X * 37]);
+appendDraggableImage(ma_do_png, "RH2", [20 * 29, base_X * 37]);
+appendDraggableImage(tuong_2_do_png, "RE1", [20 * 9, base_X * 37]);
+appendDraggableImage(tuong_2_do_png, "RE2", [20 * 25, base_X * 37]);
+appendDraggableImage(si_do_png, "RA1", [20 * 13, base_X * 37]);
+appendDraggableImage(si_do_png, "RA2", [20 * 21, base_X * 37]);
+appendDraggableImage(tuong_do_png, "RK", [20 * 17, base_X * 37]);
+appendDraggableImage(phao_do_png, "RC1", [20 * 5, 20 * 29]);
+appendDraggableImage(phao_do_png, "RC2", [20 * 29, 20 * 29]);
+appendDraggableImage(tot_do_png, "RP1", [20, 20 * 25]);
+appendDraggableImage(tot_do_png, "RP2", [20 * 9, 20 * 25]);
+appendDraggableImage(tot_do_png, "RP3", [20 * 17, 20 * 25]);
+appendDraggableImage(tot_do_png, "RP4", [20 * 25, 20 * 25]);
+appendDraggableImage(tot_do_png, "RP5", [20 * 33, 20 * 25]);
+
+function Board(moves) {
+    this.moves = moves;
+    this.move_index = 0;
+    this.move_side = 0;
+    this.start = function () {
+        console.log("hihi");
+    };
+
+    this.move = function (move) {
+        if (this.is_end()) {
+            this.end_game();
+        }
+        d3.select("#RK")
+            .attr("transform", "translate(100, 100)");
+    };
+
+    this.end_game = function () {
+        console.log("End Game");
+        $("#next").attr("disabled", true);
+    };
+    this.is_end = function () {
+        console.log(this.move_index);
+        console.log(this.move_side);
+        return (this.move_side == 1) && (this.move_index == this.moves.length - 1);
+    };
+
+    this.next = function () {
+        let move = this.moves[this.move_index][this.move_side];
+        console.log(move);
+        this.move(move);
+        console.log("holy next");
+        if (this.move_side == 0) {
+            this.move_side = 1;
+        } else {
+            this.move_side = 0;
+            this.move_index += 1;
+        }
+    };
+}
+
+let moves = [["C 2 . 5", "H 8 + 7"], ["H 2 + 3", "R 9 . 8"]];
+let board = new Board(moves);
+board.next();
+board.next();
+// board.next();
+// board.next();
 
 
 function drawTable() {
@@ -136,13 +182,14 @@ function drawTable() {
     add_mark_3(table, 40 * 17, 40 * 7);
     add_mark_3(table, 40 * 17, 40 * 13);
 
-    function add_line_mark(element, X, Y, XO1, YO1, XO2, YO2){
+    function add_line_mark(element, X, Y, XO1, YO1, XO2, YO2) {
         element.append("line").style("stroke", "black")
             .attr("x1", X + XO1 * offset)
             .attr("y1", Y + YO1 * offset)
             .attr("x2", X + XO2 * offset)
             .attr("y2", Y + YO2 * offset);
     }
+
     function add_mark(element, X, Y) {
         add_line_mark(element, X, Y, 1, 1, 3, 1);
         add_line_mark(element, X, Y, 1, 1, 1, 3);
@@ -203,9 +250,10 @@ function drawTable() {
         .attr("y2", 20 * 38);
 }
 
-function appendDraggableImage(url, position) {
+function appendDraggableImage(url, id, position) {
     var imageGroup = svg.append("g")
         .datum({position: position})
+        .attr("id", id)
         .attr("transform", d => "translate(" + d.position + ")");
 
     // var circleFill = imageGroup.append("circle")
@@ -255,14 +303,24 @@ function dragstarted(d) {
 }
 
 function dragged(d) {
+    // var newX = d3.event.x - image.size / 2,
+    //     newY = d3.event.y - image.size / 2;
+    //
+    // d3.select(this)
+    //     .attr("transform", "translate(" + (d.position = [newX, newY]) + ")").raise();
+}
+
+function dragended(d) {
+
     var newX = d3.event.x - image.size / 2,
         newY = d3.event.y - image.size / 2;
 
     d3.select(this)
         .attr("transform", "translate(" + (d.position = [newX, newY]) + ")").raise();
-}
-
-function dragended(d) {
     console.log(d);
     d3.select(this);
 }
+
+$("#next").click(function () {
+    board.next();
+});
