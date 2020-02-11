@@ -103,40 +103,70 @@ function drawTable() {
     }
 
     table.append("line").style("stroke", "black")
-         .attr("x1", 40)
-         .attr("y1", 40 * 9)
-         .attr("x2", 40)
-         .attr("y2", 40 * 11);
+        .attr("x1", 40)
+        .attr("y1", 40 * 9)
+        .attr("x2", 40)
+        .attr("y2", 40 * 11);
 
     table.append("line").style("stroke", "black")
-         .attr("x1", 40 * 17)
-         .attr("y1", 40 * 9)
-         .attr("x2", 40 * 17)
-         .attr("y2", 40 * 11);
+        .attr("x1", 40 * 17)
+        .attr("y1", 40 * 9)
+        .attr("x2", 40 * 17)
+        .attr("y2", 40 * 11);
     var offset = 5;
-    table.append("line").style("stroke", "black")
-         .attr("x1", 40 * 15 + offset)
-         .attr("y1", 40 * 15 + offset * 3)
-         .attr("x2", 40 * 15 + offset)
-         .attr("y2", 40 * 15 + offset);
 
-    table.append("line").style("stroke", "black")
-         .attr("x1", 40 * 15 + offset)
-         .attr("y1", 40 * 15 + offset)
-         .attr("x2", 40 * 15 + offset * 3)
-         .attr("y2", 40 * 15 + offset);
+    add_mark(table, 40 * 15, 40 * 15);
+    add_mark(table, 40 * 3, 40 * 15);
 
-    table.append("line").style("stroke", "black")
-         .attr("x1", 40 * 15 + offset * -1)
-         .attr("y1", 40 * 15 + offset * 3)
-         .attr("x2", 40 * 15 + offset * -1)
-         .attr("y2", 40 * 15 + offset);
+    add_mark(table, 40 * 3, 40 * 5);
+    add_mark(table, 40 * 15, 40 * 5);
 
-    table.append("line").style("stroke", "black")
-         .attr("x1", 40 * 15 + offset * -1)
-         .attr("y1", 40 * 15 + offset * -1)
-         .attr("x2", 40 * 15 + offset * -1)
-         .attr("y2", 40 * 15 + offset * -3);
+
+    add_mark(table, 40 * 5, 40 * 13);
+    add_mark(table, 40 * 9, 40 * 13);
+    add_mark(table, 40 * 13, 40 * 13);
+
+    add_mark(table, 40 * 5, 40 * 7);
+    add_mark(table, 40 * 9, 40 * 7);
+    add_mark(table, 40 * 13, 40 * 7);
+
+    add_mark_2(table, 40, 40 * 7);
+    add_mark_2(table, 40, 40 * 13);
+
+    add_mark_3(table, 40 * 17, 40 * 7);
+    add_mark_3(table, 40 * 17, 40 * 13);
+
+    function add_line_mark(element, X, Y, XO1, YO1, XO2, YO2){
+        element.append("line").style("stroke", "black")
+            .attr("x1", X + XO1 * offset)
+            .attr("y1", Y + YO1 * offset)
+            .attr("x2", X + XO2 * offset)
+            .attr("y2", Y + YO2 * offset);
+    }
+    function add_mark(element, X, Y) {
+        add_line_mark(element, X, Y, 1, 1, 3, 1);
+        add_line_mark(element, X, Y, 1, 1, 1, 3);
+        add_line_mark(element, X, Y, 1, -1, 3, -1);
+        add_line_mark(element, X, Y, 1, -3, 1, -1);
+        add_line_mark(element, X, Y, -1, -1, -1, -3);
+        add_line_mark(element, X, Y, -1, -1, -3, -1);
+        add_line_mark(element, X, Y, -1, 3, -1, 1);
+        add_line_mark(element, X, Y, -1, 1, -3, 1);
+    }
+
+    function add_mark_2(element, X, Y) {
+        add_line_mark(element, X, Y, 1, 1, 3, 1);
+        add_line_mark(element, X, Y, 1, 1, 1, 3);
+        add_line_mark(element, X, Y, 1, -1, 3, -1);
+        add_line_mark(element, X, Y, 1, -3, 1, -1);
+    }
+
+    function add_mark_3(element, X, Y) {
+        add_line_mark(element, X, Y, -1, -1, -1, -3);
+        add_line_mark(element, X, Y, -1, -1, -3, -1);
+        add_line_mark(element, X, Y, -1, 3, -1, 1);
+        add_line_mark(element, X, Y, -1, 1, -3, 1);
+    }
 
 
     // duong ngang
