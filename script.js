@@ -54,7 +54,7 @@ appendDraggableImage(ma_den_png, "BH2", [20 * 29, base_X]);
 appendDraggableImage(tuong_2_den_png, "BE1", [20 * 9, base_X]);
 appendDraggableImage(tuong_2_den_png, "BE2", [20 * 25, base_X]);
 appendDraggableImage(si_den_png, "BA1", [20 * 13, base_X]);
-appendDraggableImage(si_den_png, "BA2", [20 * 21, base_X]);
+appendDraggableImage(si_den_png, "BA2",  [20 * 21, base_X]);
 appendDraggableImage(tuong_den_png, "BK", [20 * 17, base_X]);
 appendDraggableImage(phao_den_png, "BC1", [20 * 5, 20 * 9]);
 appendDraggableImage(phao_den_png, "BC2", [20 * 29, 20 * 9]);
@@ -81,20 +81,52 @@ appendDraggableImage(tot_do_png, "RP3", [20 * 17, 20 * 25]);
 appendDraggableImage(tot_do_png, "RP4", [20 * 25, 20 * 25]);
 appendDraggableImage(tot_do_png, "RP5", [20 * 33, 20 * 25]);
 
+function Piece(id, position) {
+    this.id = id;
+    this.color = id[0];
+    this.type = id[1];
+    this.position = {
+        "x": position[0],
+        "y": position[1]
+    };
+    this.move = function (move) {
+        console.log(move);
+        let direction = move[0];
+        let position = move[1];
+        this.move_image(this.id, {"x": 5, "y": 8})
+    };
+
+    this.move_image = function (id, position) {
+        console.log("move image");
+        console.log(id);
+        console.log(position);
+        let image_id = "#" + id;
+        d3.select(image_id)
+            .attr("transform", "translate(100, 100)");
+    };
+}
+
 function Board(moves) {
     this.moves = moves;
     this.move_index = 0;
     this.move_side = 0;
+    this.pieces = {
+        "C2": new Piece("RP2", [8, 8])
+    };
     this.start = function () {
         console.log("hihi");
     };
 
     this.move = function (move) {
+        // parse move
+        let piece_name = "C2";
+        let move_name = ".5";
+        let piece = this.pieces[piece_name];
+        piece.move(move_name);
+        console.log(move);
         if (this.is_end()) {
             this.end_game();
         }
-        d3.select("#RK")
-            .attr("transform", "translate(100, 100)");
     };
 
     this.end_game = function () {
@@ -121,7 +153,7 @@ function Board(moves) {
     };
 }
 
-let moves = [["C 2 . 5", "H 8 + 7"], ["H 2 + 3", "R 9 . 8"]];
+let moves = [["C2.5", "H8+7"], ["H2+3", "R9.8"]];
 let board = new Board(moves);
 board.next();
 board.next();
@@ -279,7 +311,6 @@ function appendDraggableImage(url, id, position) {
         .on("start", dragstarted)
         .on("drag", dragged)
         .on("end", dragended));
-
 }
 
 function dragstarted(d) {
