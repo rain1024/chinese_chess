@@ -93,7 +93,7 @@ function Piece(id, position) {
         console.log(move);
         let direction = move[0];
         let position = move[1];
-        this.move_image(this.id, {"x": 5, "y": 8})
+        this.move_image(this.id, {"x": 8, "y": 8})
     };
 
     this.move_image = function (id, position) {
@@ -101,8 +101,13 @@ function Piece(id, position) {
         console.log(id);
         console.log(position);
         let image_id = "#" + id;
-        d3.select(image_id)
-            .attr("transform", "translate(100, 100)");
+        let x_offset = 20;
+        let y_offset = 20;
+        let size = 80;
+        let x = x_offset + (position["x"] - 1) * size;
+        let y = y_offset + (position["y"] - 1) * size;
+        let image_translate = "translate(" + x + "," + y  + ")";
+        d3.select(image_id).attr("transform", image_translate);
     };
 }
 
@@ -111,7 +116,7 @@ function Board(moves) {
     this.move_index = 0;
     this.move_side = 0;
     this.pieces = {
-        "C2": new Piece("RP2", [8, 8])
+        "C2": new Piece("RC2", [8, 8])
     };
     this.start = function () {
         console.log("hihi");
@@ -164,7 +169,7 @@ board.next();
 function drawTable() {
     var table = svg.append("g");
     // duong doc
-    for (var i = 0; i < 9; i++) {
+    for (let i = 0; i < 9; i++) {
         table.append("line").style("stroke", "black")  // colour the line
             .attr("x1", 40 + 80 * i)     // x position of the first end of the line
             .attr("y1", 40)      // y position of the first end of the line
@@ -172,7 +177,7 @@ function drawTable() {
             .attr("y2", 40 * 9);
     }
 
-    for (var i = 0; i < 9; i++) {
+    for (let i = 0; i < 9; i++) {
         table.append("line").style("stroke", "black")  // colour the line
             .attr("x1", 40 + 80 * i)     // x position of the first end of the line
             .attr("y1", 40 * 11)      // y position of the first end of the line
