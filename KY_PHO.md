@@ -18,3 +18,7 @@
 * [XQ notations](http://www.xqinenglish.com/intro_to_xq_notations.html)
 * [FEN for Xiangqi (CHINESE CHESS) - http://wxf.ca/](http://wxf.ca/xq/computer/fen.pdf)
 * [Notation System, Chinese Chess for Beginners](https://chengdu.github.io/Chinese-Chess-for-Beginners/notation.html)
+
+Web tổng hợp biên bản cờ tướng
+
+* [www.01xq.com](http://www.01xq.com/)
